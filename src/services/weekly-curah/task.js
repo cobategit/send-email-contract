@@ -3,7 +3,7 @@ const shelljs = require('shelljs')
 const path = require('path')
 
 const taskWeeklyCurah = cronNode.schedule(
-  `06 15 * * *`,
+  `06 0 * * *`,
   () => {
     console.log(`schedule weekly curah running...`)
     if (shelljs.exec(`node ${path.join(__dirname, 'index.js')}`).code !== 0) {
