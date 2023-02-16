@@ -1,0 +1,61 @@
+<div>
+  <h4>Dear <%=dear %> Curah,</h4>
+  <br />
+  <%=mailOpening %><br /><br />
+  <center>
+    <table border="1" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th align="center" valign="middle">Vendor</th>
+          <th align="center" valign="middle">Contract</th>
+          <th align="center" valign="middle">Quantity</th>
+          <th align="center" valign="middle">Total Received</th>
+          <th align="center" valign="middle">Price /Kg (Excl PPN)</th>
+          <th align="center" valign="middle">Freight</th>
+          <th align="center" valign="middle">Adjustment</th>
+          <th align="center" valign="middle">OS After adj</th>
+          <th align="center" valign="middle">Status</th>
+        </tr>
+      </thead>
+      <% dataWeeklyCurah.forEach(function(val){ %>
+      <tbody>
+        <tr>
+          <td align="left" valign="middle"><%=val['Vendor']%></td>
+          <td align="left" valign="middle"><%=val['Contract']%></td>
+          <td align="left" valign="middle">
+            <%=Number(val['quantity']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['Total Received']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['price/kg (excl PPN)']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['freight']).toFixed(2).replace( /(\d)(?=(\d{3})+\.)/g,
+            '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['adj']).toFixed(2).replace( /(\d)(?=(\d{3})+\.)/g,
+            '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['OS after adjustment']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle"><%=val['status']%></td>
+        </tr>
+      </tbody>
+      <% }); %>
+    </table>
+  </center>
+
+  <br /><br /><br />
+  Thank you,<br />
+  Team IT
+  <br /><br /><br />
+  This email is generated automatically by system
+</div>

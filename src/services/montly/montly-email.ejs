@@ -1,0 +1,81 @@
+<div>
+  <h4>Dear <%=dear %>,</h4>
+  <br />
+  <%=mailOpening %><br /><br />
+  <center>
+    <table border="1" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th align="center" valign="middle">Contract</th>
+          <th align="center" valign="middle">Stockpile</th>
+          <th align="center" valign="middle">Vendor</th>
+          <th align="center" valign="middle">Quantity</th>
+          <th align="center" valign="middle">Total Received</th>
+          <th align="center" valign="middle">Adjustment</th>
+          <th align="center" valign="middle">
+            Total Quantity After Adjustment
+          </th>
+          <th align="center" valign="middle">Price /Kg (excl PPN)</th>
+          <th align="center" valign="middle">Balance Amount Order</th>
+          <th align="center" valign="middle">Payment Date</th>
+          <th align="center" valign="middle">Last Location Date</th>
+          <th align="center" valign="middle">Status</th>
+          <th align="center" valign="middle">0-90</th>
+          <th align="center" valign="middle">91-180</th>
+          <th align="center" valign="middle">181-270</th>
+          <th align="center" valign="middle">>270</th>
+        </tr>
+      </thead>
+      <% dataMontly.forEach(function(val){ %>
+      <tbody>
+        <tr>
+          <td align="left" valign="middle"><%=val['Contract']%></td>
+          <td align="left" valign="middle"><%=val['stockpile']%></td>
+          <td align="left" valign="middle"><%=val['Vendor']%></td>
+          <td align="left" valign="middle">
+            <%=Number(val['quantity']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['Total Received']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['adjustment']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['Total qty after adjustment']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['price/kg (excl PPN)']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=Number(val['Balance amount order']).toFixed(2).replace(
+            /(\d)(?=(\d{3})+\.)/g, '$1,' )%>
+          </td>
+          <td align="left" valign="middle">
+            <%=moment(val['payment date']).format("yyyy-MM-DD")%>
+          </td>
+          <td align="left" valign="middle">
+            <%=moment(val['Last location date']).format("yyyy-MM-DD")%>
+          </td>
+          <td align="left" valign="middle"><%=val['status']%></td>
+          <td align="left" valign="middle"><%=val['0-90']%></td>
+          <td align="left" valign="middle"><%=val['91-180']%></td>
+          <td align="left" valign="middle"><%=val['181-270']%></td>
+          <td align="left" valign="middle"><%=val['270<']%></td>
+        </tr>
+      </tbody>
+      <% }); %>
+    </table>
+  </center>
+
+  <br /><br /><br />
+  Thank you,<br />
+  Team IT
+  <br /><br /><br />
+  This email is generated automatically by system
+</div>
