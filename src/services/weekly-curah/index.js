@@ -42,6 +42,8 @@ const cronJobsWeekly = async () => {
               }
 
               await sendEmail(optionsEmail)
+            } else {
+              throw new Error(err)
             }
           }
         )
