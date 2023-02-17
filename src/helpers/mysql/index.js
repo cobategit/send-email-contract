@@ -49,8 +49,6 @@ const fetchUserEmail = async (type) => {
   return rows
 }
 
-fetchUserEmail('')
-
 const fetchStoredProceduredMontly = async () => {
   const mysql = await connMysql()
 
