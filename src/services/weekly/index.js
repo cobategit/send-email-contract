@@ -17,15 +17,14 @@ const cronJobsWeekly = async () => {
 
     await Promise.all(
       userEmail.map(async (user) => {
-        const storedProceduredWeekly = await fetchStoredProceduredWeekly(
-          user['stockpile_id'] ?? 1
-        )
+        let stockpileId = user['stockpile_id'] ? user['stockpile_id'] : 1
+        const dataWeekly = await fetchStoredProceduredWeekly(stockpileId)
 
         ejs.renderFile(
           __dirname + '/weekly-email.ejs',
           {
             mailOpening: mailOpening['message'],
-            dataWeekly: storedProceduredWeekly,
+            dataWeekly: dataWeekly,
             dear: user['name'],
           },
           async (err, resHtml) => {
